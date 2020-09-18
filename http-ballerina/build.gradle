@@ -234,6 +234,8 @@ task ballerinaTest {
                 commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat test --all ${debugParams} -- --b7a.config.file=src/http-tests/tests/unit-tests/services/configuration/service-config.conf ${certsAndKeys}"
             } else {
                 commandLine 'sh', '-c', "$distributionBinPath/ballerina test --all ${debugParams} -- --b7a.config.file=src/http-tests/tests/unit-tests/services/configuration/service-config.conf ${certsAndKeys}"
+                // To debug Java code, comment line #236 and uncomment #238
+                // commandLine 'sh', '-c', "BAL_JAVA_DEBUG=5005 $distributionBinPath/ballerina test --all ${debugParams} -- --b7a.config.file=src/http-tests/tests/unit-tests/services/configuration/service-config.conf ${certsAndKeys}"
             }
         }
     }

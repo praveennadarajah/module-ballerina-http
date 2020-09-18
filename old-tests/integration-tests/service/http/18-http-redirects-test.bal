@@ -671,12 +671,12 @@ public function testMultipartRedirect() {
         test:assertFail(msg = "Found unexpected output: " +  resp.message());
     }
 }
-
+string errorMessage1 = "Error ";
 public function assertRedirectResponse(http:Response response, string expected) {
     var body = response.getTextPayload();
     if (body is string) {
-        test:assertEquals(body, expected, msg = errorMessage);
+        test:assertEquals(body, expected, msg = errorMessage1);
     } else {
-        test:assertFail(msg = errorMessage + body.message());
+        test:assertFail(msg = errorMessage1 + body.message());
     }
 }
